@@ -1,14 +1,24 @@
 <nav>
-    <!--a href="/">Home</!--a>
-    <a-- href="/perfil">About</a-->
-    <a routerLink="" routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    >Home </a>
-    <a routerLink="/perfil"
-    routerLinkActive="active">Perfil</a>
-    <a routerLink="/proyecto"
-    routerLinkActive="active">Proyecto</a>
-    <a routerLink="/proyectosDos"
-    routerLinkActive="active">proyectosDos</a>
+  <a routerLink=""
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{ exact: true }">
+     Home
+  </a>
 
+  <a routerLink="/page"
+     routerLinkActive="active">
+     Perfil
+  </a>
+
+  <a routerLink="/proyectos"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{ exact: true }">
+     Proyectos
+  </a>
+
+  <a routerLink="/proyectoDos"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{ exact: true }">
+     Proyecto Dos
+  </a>
 </nav>
