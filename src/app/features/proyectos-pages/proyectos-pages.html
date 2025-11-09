@@ -1,35 +1,35 @@
-<h1> Proyectos</h1>
+<h1>Proyectos</h1>
 
 <section>
-    <div>
-        <h3> Agregar Proyecto</h3>
-        <h4> Proyecto a Agregar: {{name()}}</h4>
-        <input
-            type="text"
-            placeholder="Nombre del Proyecto"
-            [value]="name()"
-            (change)="changeName(txtName.value)"
-            #txtName
-          >
-          <
-            type="text"
-            placeholder="Descripcion del Proyecto"
-          >
-          <button> Agregar </button>
-    </div>
-    <div>
-        <h3> Listado</h3>
-        <!--<ul>
-            <li>Proyecto 1</li>
-            <li>Proyecto 2</li>
-        </ul> -->
-      <ul>
-      @for(proyecto of proyectos(); track $index){
-        <li> {{proyecto.nombre}}-- {{proyecto.Descripcion}}</li>
+  <div>
+    <h3>Agregar Proyecto</h3>
+    <h4>Proyecto a Agregar: {{ name() }}</h4>
+
+    <input
+      type="text"
+      placeholder="Nombre del Proyecto"
+      [value]="name()"
+      (change)="changeName(txtName.value)"
+      #txtName
+    >
+
+    <input
+      type="text"
+      placeholder="Descripcion del Proyecto"
+      [value]="description()"
+      (change)="changeDescription(txtDesc.value)"
+      #txtDesc
+    >
+
+    <button (click)="addProyecto()">Agregar</button>
+  </div>
+
+  <div>
+    <h3>Listado</h3>
+    <ul>
+      @for (proyecto of proyectos(); track proyecto.id) {
+        <li>{{ proyecto.nombre }} -- {{ proyecto.descripcion }}</li>
       }
-        <div>
-            <h4> {{Proyecto.name}} </h4>
-            <p> {{Proyecto.description}} </p>
-        </div>
-      </ul>
-    </div>
+    </ul>
+  </div>
+</section>
