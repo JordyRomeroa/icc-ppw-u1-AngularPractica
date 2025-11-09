@@ -18,7 +18,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       color:yellow;
       text-decoration: underline;
     }
-    <a.hover{
+    a:hover{
       text-decoration: underline;
     }
   `],

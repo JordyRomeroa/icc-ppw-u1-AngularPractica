@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 @Component({
   selector: 'app-proyectos-pages',
   imports: [],
-  template: `<p>proyectos-pages works!</p>`,
+  templateUrl: './proyectos-pages.html',
   styleUrl: './proyectos-pages.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
