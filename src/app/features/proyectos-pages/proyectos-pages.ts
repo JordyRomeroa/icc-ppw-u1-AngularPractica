@@ -8,9 +8,9 @@ export interface Proyecto {
 
 @Component({
   selector: 'app-proyectos-pages',
-  standalone: true,
+  imports: [],
   templateUrl: './proyectos-pages.html',
-  styleUrls: ['./proyectos-pages.css'],
+  styleUrl: './proyectos-pages.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProyectosPages {
