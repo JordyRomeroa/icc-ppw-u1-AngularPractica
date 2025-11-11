@@ -42,4 +42,8 @@ export class ProyectosPages {
     this.name.set('');
     this.description.set('');
   }
+  dellFirstProyecto() {
+    this.proyectos.set(this.proyectos().slice(1));
+  }
+
 }

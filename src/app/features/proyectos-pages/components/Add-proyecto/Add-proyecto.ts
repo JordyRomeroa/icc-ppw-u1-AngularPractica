@@ -10,12 +10,19 @@ import { Proyecto } from '../../proyectos-pages';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddProyectoComponent {
+dellFistProyecto() {
+throw new Error('Method not implemented.');
+}
   name = signal('');
   description = signal('');
 
   // output
   newProyecto = output<Proyecto>();
+  removeProyecto = output<number>();
 
+  eliminar(id:number) {
+    this.removeProyecto.emit(id);
+  }
   AddProyecto() {
     const proyecto: Proyecto = {
       id: Math.floor(Math.random() * 1000),
@@ -36,5 +43,8 @@ export class AddProyectoComponent {
 
   ChangeDescription(value: string) {
     this.description.set(value);
+  }
+  dellFirstProyecto(id:number) {
+    this.removeProyecto.emit(1);
   }
 }

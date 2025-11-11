@@ -1,8 +1,11 @@
 <listado-proyecto
   listName="Listado de Proyectos"
-  [proyectos]="ProyectosService.proyectos()"
+  [proyectos]="ProyectosService.Proyecto()"
 ></listado-proyecto>
 
 <p>Aqui debe haber un componente que agregue servicios</p>
 
-<app-add-proyecto (newProyecto)="ProyectosService.AddProyecto($event)"></app-add-proyecto>
+<app-add-proyecto (newProyecto)="ProyectosService.AddProyecto($event)"
+(removeProyecto)="ProyectosService.dellFirstProyecto()"
+></app-add-proyecto>
+
