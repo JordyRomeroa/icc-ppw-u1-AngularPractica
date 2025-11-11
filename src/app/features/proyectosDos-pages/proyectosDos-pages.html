@@ -1,0 +1,8 @@
+<listado-proyecto
+  listName="Listado de Proyectos"
+  [proyectos]="ProyectosService.proyectos()"
+></listado-proyecto>
+
+<p>Aqui debe haber un componente que agregue servicios</p>
+
+<app-add-proyecto (newProyecto)="ProyectosService.AddProyecto($event)"></app-add-proyecto>

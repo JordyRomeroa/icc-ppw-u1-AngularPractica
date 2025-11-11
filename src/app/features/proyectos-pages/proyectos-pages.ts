@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ListadoProyecto } from './components/listado-proyecto/listado-proyecto';
 
 export interface Proyecto {
   id: number;
@@ -8,7 +9,7 @@ export interface Proyecto {
 
 @Component({
   selector: 'app-proyectos-pages',
-  imports: [],
+  imports: [ListadoProyecto],
   templateUrl: './proyectos-pages.html',
   styleUrl: './proyectos-pages.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
