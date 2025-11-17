@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { Component, CompilerOptions, OnInit, OnDestroy, ChangeDetectionStrategy, signal } from '@angular/core';
 
 @Component({
   selector: 'app-home-pages',
@@ -10,24 +10,37 @@ import {CommonModule} from '@angular/common';
 })
 
 export class HomePages
-{
-  title = 'Primer Componente';
-  subtitle = 'Mi primera Practica';
+{counter = 0;
 
-  contador = 7;
+  // signal para contador automático
+  conterSignal = signal(0);
 
-  incrementar(): void
-  {
-    this.contador++;
+  private intervalo: any; // guardar referencia para limpiar
+
+  ngOnInit(): void {
+    // arrancar el contador automático al iniciar el componente
+    this.intervalo = setInterval(() => {
+      console.log('tick'); // comprueba que realmente se está ejecutando
+      this.conterSignal.update(v => v + 1);
+    }, 1000);
   }
 
-  decrementar(): void
-  {
-    this.contador--;
+  ngOnDestroy(): void {
+    if (this.intervalo) {
+      clearInterval(this.intervalo);
+      this.intervalo = null;
+    }
   }
 
-  reset(): void
-  {
-    this.contador = 0;
+  // métodos manuales
+  changeValue(value: number) {
+    this.counter += value;
+    // si quieres que la señal también refleje manualmente:
+    this.conterSignal.update(current => current + value);
+  }
+
+  resetValue(value: number) {
+    this.counter = value;
+    this.conterSignal.set(value);
   }
 }
