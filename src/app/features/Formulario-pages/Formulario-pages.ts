@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormUtil } from '../../util/form-util/form-util';
 
 @Component({
   selector: 'app-formulario-pages',
@@ -8,56 +9,26 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
   styleUrl: './Formulario-pages.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormularioPages {
+export class FormularioPage {
+
+  formUtils = FormUtil;
+
+
+  onSubmit() {
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+    console.log('Datos del formulario:', this.myForm.value);
+    alert('Formulario válido. Datos enviados correctamente.');
+    this.myForm.reset();
+  }
 
   private fb = inject(FormBuilder);
 
   myForm: FormGroup = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(3)]],
-    edad: ['', [Validators.required, Validators.min(18)]],
+    edad: [0, [Validators.required, Validators.min(18)]],
     correo: ['', [Validators.required, Validators.email]],
   });
-
-  onSubmit() {
-
-  if (this.myForm.valid) {
-    this.myForm.markAllAsTouched();
-    return;
-  }
-  console.log('Datos del formulario:', this.myForm.value);
-  alert('Formulario enviado con éxito!');
-  this.myForm.reset();
-  }
-
-  isValidField(fieldName: string): boolean | null {
-    return (
-      this.myForm.controls[fieldName].errors &&
-      this.myForm.controls[fieldName].touched
-    );
-  }
-
-  getFieldError(fieldName: string): string | null {
-    const field = this.myForm.controls[fieldName];
-    if (!field) return null;
-
-    const errors = this.myForm.controls[fieldName].errors ?? {};
-
-    for (const key of Object.keys(errors)) {
-      switch (key) {
-        case 'required':
-          return 'Este campo es obligatorio.';
-
-        case 'minlength':
-          return `El mínimo de caracteres es ${errors['minlength'].requiredLength}.`;
-
-        case 'min':
-          return `El valor mínimo permitido es ${errors['min'].min}.`;
-
-        case 'email':
-          return 'El formato de correo es inválido.';
-      }
-    }
-
-    return null; // ← Importante para evitar errores
-  }
 }

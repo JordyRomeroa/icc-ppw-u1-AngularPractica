@@ -3,7 +3,7 @@ import { HomePages } from './features/HomePages/HomePages';
 import { PerfilPages } from './features/PerfilPages/PerfilPages';
 import { ProyectosPages } from './features/proyectos-pages/proyectos-pages';
 import { ProyectosDosPages } from './features/proyectosDos-pages/proyectosDos-pages';
-import { FormularioPages } from './features/Formulario-pages/Formulario-pages';
+import { FormularioPage } from './features/Formulario-pages/Formulario-pages';
 
 
 export const routes: Routes = [
@@ -29,7 +29,7 @@ export const routes: Routes = [
   },
   {
     path: 'Formulario',
-    component: FormularioPages,
+    component: FormularioPage,
     title: 'Formulario',
   },
   // EL WILDCARD SIEMPRE AL FINAL
