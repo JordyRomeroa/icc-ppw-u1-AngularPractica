@@ -4,6 +4,8 @@ import { PerfilPages } from './features/PerfilPages/PerfilPages';
 import { ProyectosPages } from './features/proyectos-pages/proyectos-pages';
 import { ProyectosDosPages } from './features/proyectosDos-pages/proyectosDos-pages';
 import { FormularioPage } from './features/Formulario-pages/Formulario-pages';
+import { FormulariosDinamicos } from './features/formularios/pages/formularios-dinamicos/formularios-dinamicos';
+import { FormularioMore } from './features/formularios/pages/formulario-more/formulario-more';
 
 
 export const routes: Routes = [
@@ -28,10 +30,26 @@ export const routes: Routes = [
     title: 'Proyectos Dos',
   },
   {
-    path: 'Formulario',
+    path: 'Formulario/basic',
     component: FormularioPage,
     title: 'Formulario',
   },
+  {
+    path: 'Formulario/dynamic',
+    component: FormulariosDinamicos,
+    title: 'Formulario Dinámico',
+  },
+  {
+    path: 'Formulario/more',
+    component: FormularioMore,
+    title: 'Formulario More',
+  },
+  {
+  path: 'formulario',
+  loadChildren: () =>
+  import('./features/formularios/pages/formularios-dinamicos/formulario-routers').then(m => m.forumularioPagesRoutes)
+  },
+
   // EL WILDCARD SIEMPRE AL FINAL
   {
     path: '**',
