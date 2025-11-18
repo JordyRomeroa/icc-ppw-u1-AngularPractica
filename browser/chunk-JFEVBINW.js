@@ -1,0 +1,1 @@
+import{Kb as o,Lb as r}from"./chunk-VEI5TZEW.js";var m=[{path:"",children:[{path:"basic",title:"Formulario B\xE1sico",Component:o},{path:"dynamic",title:"Formulario Din\xE1mico",Component:r},{path:"more",title:"more",Component:o},{path:"**",redirectTo:"basic"}]}];export{m as forumularioPagesRoutes};
